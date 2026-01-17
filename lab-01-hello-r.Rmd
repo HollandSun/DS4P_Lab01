@@ -50,7 +50,7 @@ dino_data %>%
 
 
 ### Exercise 3
-Use the samiliar code we do the same thing on **star** dataset
+Use the similar code we do the same thing on **star** dataset
 First, filter the **star** dataset, and then use **ggplpt** to visualization:
 
 ```{r plot-star}
@@ -68,24 +68,52 @@ star_data %>%
   summarize(r = cor(x, y))
 ```
 
-the correlation coefficient of **star** dataset is **-0.0630** which is smaller than the **-0.0645** of **dino** dataset.
+the correlation coefficient of **star** dataset is **-0.0630** which is ***smaller*** than the **-0.0645** of **dino** dataset.
 
-*(For **smaller**, I mean the strenth of correlation not the number).*
+*( For **smaller**, I mean the strength of correlation, not the number itself )*
 
 ### Exercise 4
 
-Add your code and narrative to complete this exercise. Use the conventions from the previous exercises to name your chunks and organize your work.
+Again, use the similar code we do the same thing on **circle** dataset
+First, filter the **circle** dataset, and then use **ggplpt** to visualization:
 
-```{r}
+```{r plot-circle}
+circle_data <- datasaurus_dozen %>%
+  filter(dataset == "circle")
 
+ggplot(data = circle_data, mapping = aes(x = x, y = y)) +
+  geom_point()
 ```
 
-```{r}
-
+Second, calculate the **r** of **circle** dataset
+```{r cor-circle}
+circle_data %>%
+  summarize(r = cor(x, y))
 ```
+the correlation coefficient of **circle** dataset is **-0.0683** which is ***larger*** than the **-0.0645** of **dino** dataset.
+
+*( Again, For **larger**, I mean the strength of correlation, not the number itself )*
 
 ### Exercise 5
 
-This is your final exercise! Add code and narrative as needed. Be creative and show off what you’ve learned so far. Add code and narrative as needed.
+Finally We use the similar code to plot all those **13** dataset:
 
-To add additional R chunks, you can either type the backticks, curly braces, and the letter `r`, or use the "Insert Chunk" button above (the green C+ icon). Have fun!
+```{r plot-alldataset}
+ggplot(datasaurus_dozen, aes(x = x, y = y, color = dataset)) +
+  geom_point() +
+  facet_wrap(~dataset, ncol = 3) +
+  theme(legend.position = "none")
+```
+
+Second, calculate  **r** of all **13** datasets.
+To know better which one is larger in strength, maybe we can then transit the **r** into **arrange** function to help us,So i make some changes on the original codes:
+```{r cor-alldataset}
+datasaurus_dozen %>%
+  group_by(dataset) %>%
+  summarize(r = cor(x, y))%>%
+  arrange(desc(abs(r)))
+```
+ 
+ ### Exercise 6(maybe)
+ adjust the size of figure
+ 

@@ -1,7 +1,7 @@
 ---
 title: "Lab 01 - Hello R"
-author: "Insert your name here"
-date: "Insert date here"
+author: "Holland Sun"
+date: "2026 Jan 16"
 output: 
   html_document: 
     fig_height: 4
@@ -20,7 +20,13 @@ data("datasaurus_dozen")
 
 ### Exercise 1
 
-Remove this text, and add your answer for Exercise 1 here.
+datasaurus_dozen has 1846 rows and 3 variables(I think that is columns),and the 3 variables: 
+
+* **dataset**: which refers to which dataset the data are from
+
+* **x**: which refers to the x-values
+
+* **y**: which refers to the y-values
 
 ### Exercise 2
 
@@ -42,15 +48,14 @@ Next, let's calculate the correlation between `x` and `y` in this dataset:
 dino_data %>%
   summarize(r = cor(x, y))
 ```
-Once you’ve cleaned up the text, add your own explanation or observations here!
 
+Once you’ve cleaned up the text, add your own explanation or observations here!
 
 ### Exercise 3
 
 This is your turn to write the code and narrative for the star dataset. Follow the same steps as above to complete the analysis. Don't forget to label your chunks appropriately!
 
-Note that the R chunks are labeled with `plot-star` and `cor-star` to provide spaces to place the code for plotting and calculating the correlation coefficient.
-To finish, clean up the narrative by removing these instructions.
+Note that the R chunks are labeled with `plot-star` and `cor-star` to provide spaces to place the code for plotting and calculating the correlation coefficient. To finish, clean up the narrative by removing these instructions.
 
 ```{r plot-star}
 
@@ -61,8 +66,8 @@ I'm some filler text, you should replace me with more meaningful text...
 ```{r cor-star}
 
 ```
-Add your explanation here—what did you notice?
 
+Add your explanation here—what did you notice?
 
 ### Exercise 4
 
@@ -78,9 +83,6 @@ Add your code and narrative to complete this exercise. Use the conventions from 
 
 ### Exercise 5
 
-This is your final exercise! Add code and narrative as needed. Be creative and show off what you’ve learned so far.
-Add code and narrative as needed.
+This is your final exercise! Add code and narrative as needed. Be creative and show off what you’ve learned so far. Add code and narrative as needed.
 
 To add additional R chunks, you can either type the backticks, curly braces, and the letter `r`, or use the "Insert Chunk" button above (the green C+ icon). Have fun!
-
-
